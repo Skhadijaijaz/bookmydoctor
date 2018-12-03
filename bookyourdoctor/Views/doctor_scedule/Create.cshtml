@@ -1,0 +1,141 @@
+﻿
+
+
+@model bookyourdoctor.Models.doctor_scedule
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <body style="background-image:url(../images/ss.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:690px;">
+        <div class=" container">
+            <div class="form-group">
+                @Html.LabelFor(model => model.doctor_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.doctor_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.doctor_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <h1 style="margin-top:50px;font-family:Arial;font-size:35px; margin-bottom:50px; text-align:center"><b>ADD SCHEDULE</b></h1>
+            <h1 style="margin-top:30px;font-family:Arial;font-size:30px; margin-bottom:50px; text-align:center"><b>HOSPITAL SCHEDULE</b></h1>
+            <table class="table table-bordered table-condensed">
+                <tbody>
+                    <tr>
+                        <th style="font-family:Arial;font-size:24px">Day</th>
+                        <th style="font-family:Arial;font-size:24px">Time Slot</th>
+                        <th style="font-family:Arial;font-size:24px">Time Slot</th>
+                        <th style="font-family:Arial;font-size:24px">Submit</th>
+                        <th style="font-family:Arial;font-size:24px">Reset</th>
+<tr>
+                        <td>
+                            @Html.LabelFor(model => model.Clinic_day, "Clinic Day:", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(x => x.Clinic_day, bookyourdoctor.Models.doctor_scedule.GetDay())
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="col-md-10" type="time">
+
+                                @Html.EditorFor(model => model.clinic_time, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.clinic_time, "", new { @class = "text-danger" })
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="col-md-10" type="time">
+
+                                @Html.EditorFor(model => model.clinic_end_time, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.clinic_end_time, "", new { @class = "text-danger" })
+                            </div>
+                        </td>
+                        <td><input style="font-family:Arial;font-size:18px" type="submit" class="btn btn-primary" value="Submit" onclick="return confirm('Are you sure you want to submit')" /></td>
+                        <td>
+                            <input style="font-family:Arial;font-size:18px" type="reset" name="" class="btn btn-danger" value="Reset" onclick="return confirm('Are you sure you want to reset')" />
+                        </td>
+                        <!--<td style="width:10%">X:</td>
+    <td><input type="text" style="width:90%" /></td>-->
+                    </tr>
+                </tbody>
+            </table>
+            <h1 style="margin-top:30px;font-family:Arial;font-size:30px;  margin-top:50px;margin-bottom:50px; text-align:center"><b>CLINIC SCHEDULE</b></h1>
+            <table class="table table-bordered table-condensed">
+                <tbody>
+                    <tr>
+                        <th style="font-family:Arial;font-size:24px">Day</th>
+                        <th style="font-family:Arial;font-size:24px">Time Slot</th>
+                        <th style="font-family:Arial;font-size:24px">Submit</th>
+                        <th style="font-family:Arial;font-size:24px">Reset</th>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.hospial_day, "Clinic Day:", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(x => x.hospial_day, bookyourdoctor.Models.doctor_scedule.GetDay())
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.hospital_time, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.hospital_time, "", new { @class = "text-danger" })
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.hospital_end_time, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.hospital_end_time, "", new { @class = "text-danger" })
+                            </div>
+                        </td>
+
+                        <td><input style="font-family:Arial;font-size:18px" type="submit" class="btn btn-primary" value="Submit" onclick="return confirm('Are you sure you want to submit')" /></td>
+                        <td>
+                            <input style="font-family:Arial;font-size:18px" type="reset" name="" class="btn btn-danger" value="Reset" onclick="return confirm('Are you sure you want to reset')" />
+                        </td>
+                        <!--<td style="width:10%">X:</td>
+    <td><input type="text" style="width:90%" /></td>-->
+                    </tr>
+                </tbody>
+            </table>
+            <input style="width:30%;margin-left:830px;Arial;font-size:24px" type="submit" class="btn btn-primary" value="Submit" onclick="return confirm('Are you sure you want to submit')" />
+            <div class="form-group">
+                <div class="col-md-7 colset-md-offset-7">
+                    <div class="col-md-7 colset-md-offset-7">
+                        <a href="http://localhost:58872/Doctor/DoctorWelcome">
+                            <input style="margin-top:-65px;height:50px;width:120px" type="button" name="" class="btn " value="BACK" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+
+
+</body>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-default" />
+    </div>
+</div>
+
+        }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

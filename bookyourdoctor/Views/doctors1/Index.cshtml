@@ -1,0 +1,117 @@
+﻿@model IEnumerable<bookyourdoctor.Models.doctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_of_birth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MBBS_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.confirm_password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clinic_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hospital_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hospital_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clinic_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.specialization)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.practising_years)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fee)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_of_birth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBBS_Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.confirm_password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clinic_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hospital_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hospital_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clinic_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specialization)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.practising_years)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fee)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.doctor_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.doctor_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.doctor_id })
+        </td>
+    </tr>
+}
+
+</table>
